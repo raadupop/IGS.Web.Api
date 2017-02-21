@@ -8,14 +8,14 @@ The second goal of this library is to accelerate the developing process by provi
 
 #Functionality provided
 
-Logging
-Exceptions
-Authorization 
-Formatters
-Caching
-Service status
-Mappers
-Handlers
+Logging,
+Exceptions,
+Authorization, 
+Formatters,
+Caching,
+Service status,
+Mappers,
+Handlers.
 
 #Authorization infrastructure
 
@@ -23,15 +23,13 @@ IGS.Web.Api will provide an extendable infrastructure for wrapping at the high l
 
 The authorization process will be performed by the authorization providers in a custom ways. Those types of providers will be abstracted by two types of generics providers: 
 
-WildCardAuthorizationProvider 
-Authorize all of the request for all of the route
+WildCardAuthorizationProvider: Authorize all of the request for all of the route
 
-RouteAuthorizationProvider
-Authorize the request for a custom route
+RouteAuthorizationProvider: Authorize the request for a custom route
  
 Using the Builder pattern for creating those generics providers IGS.Web.Api expose an interface IAuthorizationBuilder that is injected into the SetupRouteAuthorization method where will be registered the authorization providers:
 
 E.g:
-TokenAuthorizationProvider
-LocalIpAuthorizationProvider
+TokenAuthorizationProvider,
+LocalIpAuthorizationProvider,
 DataAccessAutorizationProvider, etc 
