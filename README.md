@@ -1,20 +1,37 @@
 #Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
-#Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+IGS.Web.Api is a shared class library part of the ISG.Web.Core libraries implemented with a pluggable architecture that should be consumed by the any of IGS components. 
 
-#Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+The primary goal of the underlying core library in the context of the IGS systems is to decouple common core functionalities from the middleware tier avoiding in this way inconsistency and incompleteness implementation between the modules.
 
-#Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+The second goal of this library is to accelerate the developing process by providing utilities and extensions for the e.g. media formatters, caching, etc. that would be consumed by the most IGS API’s.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+#Functionality provided
+
+Logging
+Exceptions
+Authorization 
+Formatters
+Caching
+Service status
+Mappers
+Handlers
+
+#Authorization infrastructure
+
+IGS.Web.Api will provide an extendable infrastructure for wrapping at the high level of configuration the authorization systems of IGS components. 
+
+The authorization process will be performed by the authorization providers in a custom ways. Those types of providers will be abstracted by two types of generics providers: 
+
+WildCardAuthorizationProvider 
+Authorize all of the request for all of the route
+
+RouteAuthorizationProvider
+Authorize the request for a custom route
+ 
+Using the Builder pattern for creating those generics providers IGS.Web.Api expose an interface IAuthorizationBuilder that is injected into the SetupRouteAuthorization method where will be registered the authorization providers:
+
+E.g:
+TokenAuthorizationProvider
+LocalIpAuthorizationProvider
+DataAccessAutorizationProvider, etc 
