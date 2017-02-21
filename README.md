@@ -6,7 +6,7 @@ The primary goal of the underlying core library in the context of the IGS system
 
 The second goal of this library is to accelerate the developing process by providing utilities and extensions for the e.g. media formatters, caching, etc. that would be consumed by the most IGS API’s.
 
-#Functionality provided
+#Functionalities provided
 
 Logging,
 Exceptions,
